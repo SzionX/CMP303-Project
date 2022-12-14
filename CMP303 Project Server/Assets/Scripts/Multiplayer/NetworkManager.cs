@@ -47,6 +47,7 @@ public class NetworkManager : MonoBehaviour
 
         Server = new Server();
         Server.Start(port, maxClientNum);
+        Server.ClientDisconnected += PlayerLeft;
     }
 
     private void FixedUpdate() //FixedUpdate
@@ -57,5 +58,10 @@ public class NetworkManager : MonoBehaviour
     private void OnApplicationQuit() //On Quit
     {
         Server.Stop();
+    }
+
+    private void PlayerLeft(object sender, ClientDisconnectedEventArgs e)
+    {
+        Destroy(Player.list[e.Id].gameObject);
     }
 }

@@ -27,13 +27,14 @@ public class UIManager : MonoBehaviour
     }
 
     [Header("Connect")]
+
     [SerializeField] private GameObject connectUI;
     [SerializeField] private InputField usernameField;
 
     //Functions
     private void Awake()
     {
-        Singleton= this;
+        Singleton = this;
     }
 
     public void ConnectClicked()
@@ -55,6 +56,6 @@ public class UIManager : MonoBehaviour
         //Reliably sending clients username
         Message message = Message.Create(MessageSendMode.reliable, (ushort)ClientToServerID.name);
         message.AddString(usernameField.text);
-        NetworkManager.Singleton.Client.Send(message);
+        NetworkManager.Singleton.Client.Send(message); 
     }
 }
