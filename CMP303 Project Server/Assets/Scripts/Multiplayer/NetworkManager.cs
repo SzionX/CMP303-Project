@@ -3,6 +3,11 @@ using RiptideNetworking.Utils;
 using System.Reflection;
 using UnityEngine;
 
+public enum ClientToServerID : ushort
+{
+    name = 1,
+}
+
 public class NetworkManager : MonoBehaviour
 {
     //Create Singleton that destroys if instance already exists
